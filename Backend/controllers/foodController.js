@@ -35,7 +35,7 @@ const listFood = async (req, res) =>{
             return;
         }
 
-        console.log(allFood);
+        // console.log(allFood);
         
         res.status(200).json({success:true, message: 'Food List', food: allFood });
     } catch (error) {
