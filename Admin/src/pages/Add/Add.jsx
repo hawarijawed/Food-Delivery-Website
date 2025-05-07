@@ -5,7 +5,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 const Add = () => {
 
-    const url = "http://localhost:8800";
+    const url = (import.meta.env.VITE_API_URL);
     const [image, setImage] = useState(false);
     const [data, setData] = useState({
         name:"",
@@ -76,7 +76,7 @@ const Add = () => {
                             <option value="Pizza">Pizza</option>
                             <option value="Salad">Salad</option>
                             <option value="Rolls">Rolls</option>
-                            <option value="Desserts">Desserts</option>
+                            <option value="Deserts">Deserts</option>
                             <option value="Sandwich">Sandwich</option>
                             <option value="Pure Veg">Pure Veg</option>
                             <option value="Pasta">Pasta</option>

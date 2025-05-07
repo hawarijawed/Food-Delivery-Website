@@ -1,11 +1,15 @@
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
+    const url = (import.meta.env.VITE_API_URL);
+    const [token, setToken] = useState("");
+    const [food_list, setFood_list] = useState([]);
+    
 
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
@@ -32,13 +36,29 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
+    const fetchFood_list = async ()=>{
+        const response = await axios.get(`${url}/api/food/list`);
+        setFood_list(response.data.food);
+    }    
+    //To prevent form loggin out on page refresh
+    useEffect(()=>{
+        async function loadData() {
+            await fetchFood_list();
+            if (localStorage.getItem("token")) {
+                setToken(localStorage.getItem("token"))
+            }    
+        }
+        loadData();
+    },[])
     const contextValue = {
         food_list,
         cartItems,
         setCartItems,
         addToCart,
         removeFromCart,
-        getTotalCartAmount
+        getTotalCartAmount,
+        url,
+        token, setToken
     }
 
     return (
