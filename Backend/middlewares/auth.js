@@ -5,10 +5,9 @@ const authMiddleware = async (req, res, next) =>{
     if(!token){
         return res.json({success:false, message:"Not authorized, Login again"});
     }
-
     try {
         const tokenDecode = jwt.verify(token, process.env.JWT_SECRET);
-        req.body.userId = tokenDecode.id;
+        req.user = {id: tokenDecode.id};
         next();
     } catch (error) {
         console.log(error);
