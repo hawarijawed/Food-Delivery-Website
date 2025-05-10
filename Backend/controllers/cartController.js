@@ -96,7 +96,7 @@ const getCart = async(req, res) =>{
         let cartData = userData.cartData;
 
         // Respond with the cart data
-        res.json({ success: true, cartData });
+        res.json({ success: true, data:cartData });
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message || error });
