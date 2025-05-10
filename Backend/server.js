@@ -1,9 +1,9 @@
 import express from "express";
-
 import cors from "cors";
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
+import cartRouter from "./routes/cartRoute.js";
 
 const app = express();
 const PORT = 8800;
@@ -26,13 +26,11 @@ to access the image:- http://localhost:port/images/image_name
 */
 
 app.use('/api/user', userRouter);
+app.use('/api/cart', cartRouter);
 app.get("/", (req, res) =>{
     res.send("Hello from server!!!");
 });
 
-
-
 app.listen(PORT, ()=>{
     console.log(`Server started on http://localhost:${PORT}`);
-    
 })
