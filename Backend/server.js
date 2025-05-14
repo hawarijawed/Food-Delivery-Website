@@ -4,6 +4,7 @@ import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 import cartRouter from "./routes/cartRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 
 const app = express();
 const PORT = 8800;
@@ -27,6 +28,7 @@ to access the image:- http://localhost:port/images/image_name
 
 app.use('/api/user', userRouter);
 app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
 app.get("/", (req, res) =>{
     res.send("Hello from server!!!");
 });
