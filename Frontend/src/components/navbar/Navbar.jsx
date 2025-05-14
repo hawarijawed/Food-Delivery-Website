@@ -9,9 +9,9 @@ const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("home");
   const {getTotalCartAmount, token, setToken} = useContext(StoreContext);
   const logOut =() => {
-    //remove token
+    //remove token   
     localStorage.removeItem("token");
-    setToken("");
+    setToken(""); 
     navigate("/");
   }
   return (
