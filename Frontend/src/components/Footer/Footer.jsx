@@ -2,7 +2,7 @@ import React from 'react'
 import './Footer.css';
 import { assets } from '../../assets/assets';
 const Footer = () => {
-  return (
+  return ( 
     <div className='footer' id='footer'>
       <div className="footer-content">
         <div className="footer-content-left">
@@ -29,7 +29,7 @@ const Footer = () => {
             <h2>Get in touch</h2>
             <ul>
                 <li>+91 98000000</li>
-                <li>contact@tomato.com</li>
+                <li>contact@foody.com</li>
             </ul>
         </div>
         
